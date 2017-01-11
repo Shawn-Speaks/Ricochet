@@ -14,23 +14,15 @@ import android.view.View;
 
 public class DrawingView extends View {
 
-    int radius = 50;
-    int rightBound = getWidth()-radius;
-    int leftBound = radius;
-    int centerx = radius;
-    int centery = radius;
+    int radius;
+    int centerx;
+    int centery;
     int xSpeed;
     int ySpeed;
-
-
-
     int directionx = 1;
     int directiony = 1;
-
     private int paintColor;
-
     private Paint drawPaint;
-
 
     public DrawingView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -40,7 +32,9 @@ public class DrawingView extends View {
             int attr = array.getIndex(i);
             switch(attr){
                 case R.styleable.DrawingView_radius:
-                    radius = array.getInteger(attr, 0);
+                    radius = (int) array.getDimension(attr, 0);
+                    centerx = getLeft() + radius;
+                    centery = getTop() + radius;
                     break;
                 case R.styleable.DrawingView_xSpeed:
                     xSpeed = (int) array.getDimension(attr, 0);
@@ -77,30 +71,21 @@ public class DrawingView extends View {
 
             if(centerx >= getWidth()-radius){
                 directionx*= -1;
-                radius+=1;
+//                radius+=1;
             }
             if(centerx < radius){
                 directionx*= -1;
-                radius+=1;
+//                radius+=1;
             }
-
-            if(centery >= getBottom()){
+            if(centery >= getBottom()-radius){
                 directiony*= -1;
-                radius+=1;
-
+//                radius+=1;
             }
-            if(centery < getTop()){
-                directiony*= -1;
-                radius+=1;
+            if(centery < getTop()) {
+                directiony *= -1;
+//                radius += 1;
             }
-
-
-
-
             centerx += directionx * xSpeed;
-            centery += directiony * ySpeed*2;
-
+            centery += directiony * ySpeed;
     }
-
-
 }

@@ -2,9 +2,8 @@
 <resources>
     <declare-styleable name="DrawingView">
         <attr name="xSpeed" format="dimension"> </attr>
-        <attr name="ySpeed" formmat="dimension"> </attr>
-
-        <attr name="radius" format="dimension"></attr>
+        <attr name="ySpeed" format="dimension"> </attr>
+        <attr name="radius" format="dimension" />
         <attr name="ballColor" format="color"> </attr>
     </declare-styleable>
 </resources>
