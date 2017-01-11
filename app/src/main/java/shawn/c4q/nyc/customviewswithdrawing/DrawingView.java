@@ -19,10 +19,9 @@ public class DrawingView extends View {
     int leftBound = radius;
     int centerx = radius;
     int centery = radius;
-    int xSpeed = 17;
-    int ySpeed = 15;
-    boolean moveForward = true;
-    boolean moveDown = true;
+    int xSpeed;
+    int ySpeed;
+
 
 
     int directionx = 1;
