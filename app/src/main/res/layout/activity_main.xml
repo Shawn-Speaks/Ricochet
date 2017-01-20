@@ -5,21 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:orientation="vertical"
-    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="shawn.c4q.nyc.customviewswithdrawing.MainActivity">
 
-    <shawn.c4q.nyc.customviewswithdrawing.DrawingView
+    <shawn.c4q.nyc.customviewswithdrawing.BouncingBallCusomView
         android:id="@+id/ball_1"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:ballColor="#ff0000"
+        android:layout_height="match_parent"
+        app:ballColor="#ff00ff"
         app:xSpeed="5dp"
-        app:radius="10dp"
+        app:radius="15dp"
+        app:ySpeed="11dp"
         />
-    
-
-
 
 </RelativeLayout>

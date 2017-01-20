@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final long UPDATE_DELAY_TIME = 20;
     public Handler mHandler;
-    private ArrayList<DrawingView> mViewsUpdate = new ArrayList<>();
+    private ArrayList<BouncingBallCusomView> mViewsUpdate = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         RelativeLayout root = (RelativeLayout) findViewById(R.id.activity_main);
         for (int index = 0; index < root.getChildCount(); index++){
-            mViewsUpdate.add((DrawingView) root.getChildAt(index));
+            mViewsUpdate.add((BouncingBallCusomView) root.getChildAt(index));
         }
         mHandler = new Handler();
         updateBall().run();
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Runnable updateBall() {
         return () -> {
-           for (DrawingView drawing: mViewsUpdate) {
+           for (BouncingBallCusomView drawing: mViewsUpdate) {
                mHandler.postDelayed(updateBall(), UPDATE_DELAY_TIME);
                 drawing.invalidate();
            }
